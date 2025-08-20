@@ -1,76 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEMPTORIA Universe Studio Film</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Navigation bar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="TEMPTORIA Universe Studio Film.png" alt="Temptoria Universe logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#movies">Movies</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+import React, { createContext, useContext, useState } from "react";
+</div>
+);
+}
+return (
+<div className="rounded-2xl overflow-hidden border border-white/10 bg-[linear-gradient(135deg,rgba(255,45,111,0.15),rgba(23,224,255,0.12))] grid place-items-center aspect-video">
+<div className="text-center p-6">
+<div className="mx-auto mb-3 grid place-items-center h-12 w-12 rounded-full border border-white/20">
+<Play />
+</div>
+<p className="text-white font-semibold">Trailer coming soon</p>
+<p className="text-slate-300 text-sm mt-1">Add a YouTube/Vimeo embed or MP4 when ready.</p>
+</div>
+</div>
+);
+}
 
-    <!-- Hero section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to the Temptoria Universe</h1>
-            <p>Experience a new realm of cinematic storytelling. Dive into our world of AI‑generated anime heroes and epic adventures.</p>
-            <a href="#movies" class="btn">Explore Movies</a>
-        </div>
-    </section>
 
-    <!-- Movies section -->
-    <section id="movies" class="movies-section">
-        <h2>Featured Films</h2>
-        <div class="movies-grid">
-            <!-- Movie card 1 -->
-            <div class="movie-card">
-                <div class="movie-image" style="background-image: url('TEMPTORIA Universe Studio Film.png');"></div>
-                <h3>Forbidden Allure</h3>
-                <p>Two souls collide in a tempestuous romance, set against the backdrop of a neon‑lit metropolis.</p>
-            </div>
-            <!-- Movie card 2 -->
-            <div class="movie-card">
-                <div class="movie-image" style="background-image: url('TEMPTORIA Universe Studio Film.png');"></div>
-                <h3>Noir Chronicles</h3>
-                <p>A gritty detective story woven through shadows and secrets, where nothing is as it seems.</p>
-            </div>
-            <!-- Movie card 3 -->
-            <div class="movie-card">
-                <div class="movie-image" style="background-image: url('TEMPTORIA Universe Studio Film.png');"></div>
-                <h3>Night Tora</h3>
-                <p>When darkness falls, a fearless heroine emerges to protect her city from hidden threats.</p>
-            </div>
-        </div>
-    </section>
+function FilmDetail() {
+const { id } = useParams();
+const trailer = useTrailer();
+const film = films.find(f => f.id === id);
+if (!film) return <div className="p-10 text-center text-slate-400">Film not found.</div>;
+return (
+<div className="mx-auto max-w-6xl px-4 py-10">
+<div className="grid md:grid-cols-2 gap-8 items-start">
+<div>
+<img src={film.poster} alt={film.title} className="rounded-2xl border border-white/10" />
+</div>
+<div>
+<h1 className="text-4xl font-bold text-white">{film.title}</h1>
+<p className="mt-2 text-slate-400">{film.year} • {film.rating}</p>
+<p className="mt-4 text-slate-300">{film.description}</p>
+<p className="mt-4 text-sm" style={{ color: theme.neonCyan }}>{film.release}</p>
+{film.trailer && (
+<button onClick={() => trailer.open(film)} className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 hover:bg-white/10">
+<Play size={16}/> Watch Trailer
+</button>
+)}
+</div>
+</div>
 
-    <!-- About section -->
-    <section id="about" class="about-section">
-        <h2>About Temptoria</h2>
-        <p>Temptoria is a sprawling cinematic universe powered by artificial intelligence and boundless creativity. Our studio blends cutting‑edge AI techniques with classical artistry to produce immersive anime experiences. From storyboards to final edit, we craft each scene with care and passion.</p>
-    </section>
 
-    <!-- Contact section -->
-    <section id="contact" class="contact-section">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or would like to collaborate, please get in touch.</p>
-        <a href="mailto:info@temptoria.com" class="btn">Email Us</a>
-    </section>
+{/* Trailer Section */}
+<div className="mt-10">
+<h2 className="text-2xl font-semibold mb-4 text-white">Trailer</h2>
+<TrailerBlock url={film.trailer} poster={film.backdrop || film.poster} />
+</div>
 
-    <footer>
-        <p>&copy; 2025 Temptoria Universe Studio Film. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+
+{/* Gallery */}
+<div className="mt-10">
+<h2 className="text-2xl font-semibold mb-4 text-white">Gallery</h2>
+<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+{film.gallery.map((g, i) => (
+<img key={i} src={g} alt="still" className="rounded-xl border border-white/10" />
+))}
+</div>
+</div>
+</div>
+);
+}
+
+
+function Footer() {
+return (
+<footer className="mt-20 border-t border-white/10">
+<div className="mx-auto max-w-7xl px-4 py-10 grid md:grid-cols-3 gap-8">
+<div>
+<Logo />
+<p className="mt-3 text-sm text-slate-400 max-w-sm">
+Temptoria Universe — original anime film studio. Neon romance, psychological thrillers, and cyberpunk stories.
+</p>
+</div>
+</div>
+</footer>
+);
+}
+
+
+// ===================== APP =====================
+function AppShell() {
+return (
+<TrailerProvider>
+<div style={{ background: theme.bg, color: theme.text, minHeight: "100vh" }}>
+<Nav />
+<main>
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/films/:id" element={<FilmDetail />} />
+</Routes>
+</main>
+<Footer />
+</div>
+</TrailerProvider>
+);
+}
+
+
+export default function App() {
+return (
+<Router>
+<AppShell />
+</Router>
+);
+}
