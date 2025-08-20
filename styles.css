@@ -1,0 +1,197 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0d17;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Navigation bar */
+header {
+    background-color: #0a0d17;
+    border-bottom: 1px solid #262a34;
+}
+
+/* Navigation bar: centered menu below the logo */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Top logo styles */
+.top-logo {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.top-logo img {
+    /* Keep the logo responsive: height scales, width auto */
+    height: 80px;
+    width: auto;
+}
+.navbar .logo img {
+    height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #15c5d8;
+}
+
+/* Hero section */
+.hero {
+    /* Use the Forbidden Allure poster as the hero background so Tora and Takeshi are visible */
+    background: linear-gradient(180deg, rgba(10,13,23,0.9) 0%, rgba(10,13,23,0.9) 100%), url('Forbidden Allure film original.png') center/cover no-repeat;
+    background-blend-mode: darken;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e82a6a;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ae1647;
+}
+
+/* Movies section */
+.movies-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movies-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.movies-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.movie-card {
+    background-color: #111827;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-image {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+.movie-card h3 {
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+.movie-card p {
+    font-size: 0.95rem;
+    margin: 0 1rem 1.5rem 1rem;
+    flex-grow: 1;
+    color: #d1d5db;
+}
+
+/* About section */
+.about-section {
+    background-color: #0f172a;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section p {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0.5rem auto;
+    /* Add spacing between paragraphs for better readability */
+    color: #d1d5db;
+}
+
+/* Contact section */
+.contact-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    margin-bottom: 1.5rem;
+    color: #d1d5db;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0d17;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
