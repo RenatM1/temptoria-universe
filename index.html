@@ -5,17 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEMPTORIA Universe Studio Film</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f1220;
+            color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #0f1220;
+        }
+
+        .navbar .logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links.left {
+            justify-content: flex-start;
+            flex: 1;
+        }
+
+        .nav-links.right {
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('TEMPTORIA Universe.png') no-repeat center top;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #e91e63;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* MOVIES */
+        .movies-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .movie-card {
+            background: #14182b;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .movie-card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .movie-card p {
+            padding: 0 15px 20px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* ABOUT */
+        .about-section,
+        .contact-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f1220;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation bar -->
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <img src="TEMPTORIA Universe Studio Film.png" alt="Temptoria Universe logo">
-            </div>
-            <ul class="nav-links">
+            <ul class="nav-links left">
                 <li><a href="#">Home</a></li>
                 <li><a href="#movies">Movies</a></li>
+            </ul>
+
+            <!-- ЛОГО ПО ЦЕНТРУ -->
+            <div class="logo">
+                <img src="TEMPTORIA Universe.png" alt="Temptoria Universe logo">
+            </div>
+
+            <ul class="nav-links right">
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -26,7 +164,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Welcome to the Temptoria Universe</h1>
-            <p>Experience a new realm of cinematic storytelling. Dive into our world of AI‑generated anime heroes and epic adventures.</p>
+            <p>Experience a new realm of cinematic storytelling. Dive into our world of AI-generated anime heroes and epic adventures.</p>
             <a href="#movies" class="btn">Explore Movies</a>
         </div>
     </section>
@@ -37,19 +175,19 @@
         <div class="movies-grid">
             <!-- Movie card 1 -->
             <div class="movie-card">
-                <div class="movie-image" style="background-image: url('TEMPTORIA Universe Studio Film.png');"></div>
+                <img src="Forbidden Allure film original.png" alt="Forbidden Allure Poster">
                 <h3>Forbidden Allure</h3>
-                <p>Two souls collide in a tempestuous romance, set against the backdrop of a neon‑lit metropolis.</p>
+                <p>“How far will you go to resist the one you crave?” A tempestuous romance collides with neon-soaked danger.</p>
             </div>
             <!-- Movie card 2 -->
             <div class="movie-card">
-                <div class="movie-image" style="background-image: url('TEMPTORIA Universe Studio Film.png');"></div>
+                <img src="TEMPTORIA Universe.png" alt="Noir Chronicles Poster">
                 <h3>Noir Chronicles</h3>
                 <p>A gritty detective story woven through shadows and secrets, where nothing is as it seems.</p>
             </div>
             <!-- Movie card 3 -->
             <div class="movie-card">
-                <div class="movie-image" style="background-image: url('TEMPTORIA Universe Studio Film.png');"></div>
+                <img src="TEMPTORIA Universe.png" alt="Night Tora Poster">
                 <h3>Night Tora</h3>
                 <p>When darkness falls, a fearless heroine emerges to protect her city from hidden threats.</p>
             </div>
@@ -59,7 +197,7 @@
     <!-- About section -->
     <section id="about" class="about-section">
         <h2>About Temptoria</h2>
-        <p>Temptoria is a sprawling cinematic universe powered by artificial intelligence and boundless creativity. Our studio blends cutting‑edge AI techniques with classical artistry to produce immersive anime experiences. From storyboards to final edit, we craft each scene with care and passion.</p>
+        <p>Temptoria is a sprawling cinematic universe powered by artificial intelligence and boundless creativity. Our studio blends cutting-edge AI techniques with classical artistry to produce immersive anime experiences. From storyboards to final edit, we craft each scene with care and passion.</p>
     </section>
 
     <!-- Contact section -->
